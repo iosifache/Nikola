@@ -1,0 +1,42 @@
+{
+  "name": "nikola",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "browser-sync": "^2.18.8",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "electron": "^1.6.2",
+    "express": "^4.15.2",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.15.1",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "helmet": "^3.4.0",
+    "less": "^2.7.2",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.9.1",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
+    "pug": "^2.0.0-beta11",
+    "request": "^2.81.0",
+    "socket.io": "^1.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron desktop/electron.js"
+  },
+  "author": "iosifache",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iosifache/Nikola.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iosifache/Nikola/issues"
+  },
+  "homepage": "https://github.com/iosifache/Nikola#readme",
+  "description": ""
+}

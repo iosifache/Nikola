@@ -1,0 +1,58 @@
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/css/index.css')
+		link(rel='stylesheet', href='/lib/font-awesome.min.css')
+		link(rel="icon", href="/img/favicon.png", type="image/x-icon")
+	body#dashboard
+		div.menu#menu
+			div.logo
+				h1= brand
+			ul.list
+				li(v-on:click='white')
+					i.fa.fa-code
+					span= menu1
+				i.fa.fa-play(v-on:click='compile')
+				li(v-on:click='problem')
+					i.fa.fa-question
+					span= menu2
+				i.fa.fa-paper-plane(v-on:click='sendProblem')
+				li(v-on:click='settings')
+					i.fa.fa-info
+					span= menu3
+				a(href="/logout")
+					i.fa.fa-bed
+			div.problem(v-html="frame")
+			div.language
+				i.fa.fa-chevron-left(v-on:click='prev')
+				span= language
+				b(v-text="language")
+				i.fa.fa-chevron-right(v-on:click='next')
+			div.widget
+				p= hour
+					b(v-text="clock")
+				p=outside
+					b(v-text="weather")
+				p= platform
+					b(v-text="spendTime")
+				p= recommand
+					b(v-text="recomandation")
+		div#editor
+		div.caption#tutorial
+			i.fa.fa-terminal
+			p(v-text="tutorial")
+		div.panel
+			div#error
+			div.caption
+				i.fa.fa-exclamation-triangle
+			div#in
+			div.caption
+				i.fa.fa-sign-in
+			div#out
+			div.caption
+				i.fa.fa-sign-out
+		script(src='lib/vue.min.js')
+		script(src='lib/vue-resource.min.js')
+		script(src='lib/socket.io.min.js')
+		script(src='lib/src/ace.js')
+		script(src='js/dashboard.js')

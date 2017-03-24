@@ -1,0 +1,85 @@
+html
+	head
+		title= adminTitle
+		link(rel='stylesheet', href='/css/index.css')
+		link(rel='stylesheet', href='/lib/font-awesome.min.css')
+		link(rel="icon", href="/img/favicon.png", type="image/x-icon")
+	body#admin
+		div#form
+			h1= brand
+			div.buttons
+				a(href="/")
+					button(class="half")
+						i.fa.fa-home
+						span= adminButtonHome
+				a(href="/dashboard")
+					button(class="half")
+						i.fa.fa-code
+						span= adminButtonDashboard
+				a(href="/logout")
+					button(class="full")
+						i.fa.fa-bed
+						span= adminButtonLogout
+			p(class="first")= "Brand"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="brand", autocomplete="off", spellcheck="false")
+			p= "Index: Titlu"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="indexTitle", autocomplete="off", spellcheck="false")
+			p= "Index: Buton"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="indexButton", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Titlu"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardTitle", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Item meniu #1"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardMenu1", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Item meniu #2"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardMenu2", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Item meniu #3"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardMenu3", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Limbaj de programare"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardLanguage", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Ora"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardHour", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Vreme"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardOutside", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Timp petrecut"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardPlatform", autocomplete="off", spellcheck="false")
+			p= "Dashboard: Recomandare"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="dashboardRecommand", autocomplete="off", spellcheck="false")
+			p= "Problema: Titlu"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemTitle", autocomplete="off", spellcheck="false")
+			p= "Problema: Descriere"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemDescription", autocomplete="off", spellcheck="false")
+			p= "Problema: Input"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemInput", autocomplete="off", spellcheck="false")
+			p= "Problema: Output"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemOutput", autocomplete="off", spellcheck="false")
+			p= "Problema: Tutorial"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemTutorial", autocomplete="off", spellcheck="false")
+			p= "Problema: Input test"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemTestsInput", autocomplete="off", spellcheck="false")
+			p= "Problema: Output test"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="problemTestsOutput", autocomplete="off", spellcheck="false")
+			p= "Admin: Title"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="adminTitle", autocomplete="off", spellcheck="false")
+		script(src='lib/vue.min.js')
+		script(src='lib/socket.io.min.js')
+		script(src='js/admin.js')

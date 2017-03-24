@@ -1,0 +1,544 @@
+/* Import */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+/* Colors */
+/* Sizes */
+/* All */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+/* Index */
+#index {
+  background-color: #3498db;
+}
+#index div#form {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  max-width: 400px;
+  max-height: 400px;
+  margin: 0 auto;
+  padding: 25px 40px 50px 40px;
+  text-align: center;
+  background: white;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+#index div#form h1 {
+  margin: 0;
+  color: #3498db;
+  font-size: 90px;
+  font-family: 'Yellowtail', cursive;
+}
+#index div#form button {
+  width: 100%;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #3498db;
+  transition: all 0.7s ease;
+}
+#index div#form button i {
+  margin-left: 5px;
+  font-size: 18px;
+}
+#index div#form button:hover {
+  background: #2980b9;
+}
+/* Dashobard */
+#dashboard {
+  background-color: #ecf0f1;
+}
+#dashboard .menu {
+  position: fixed;
+  width: 360px;
+  height: 100%;
+  background-color: #1f2123;
+}
+#dashboard .menu .logo {
+  position: fixed;
+  display: inline-block;
+  width: 360px;
+  height: 130px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: #3498db;
+}
+#dashboard .menu .logo h1 {
+  margin: 0;
+  color: white;
+  line-height: 130px;
+  font-size: 90px;
+  font-family: 'Yellowtail', cursive;
+}
+#dashboard .menu .list {
+  position: fixed;
+  display: inline-block;
+  width: 360px;
+  height: 165px;
+  top: 130px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+#dashboard .menu .list li {
+  padding: 15px 30px;
+  width: 300px;
+  font-size: 18px;
+  font-weight: 300;
+  color: #ecf0f1;
+  border-bottom: 1px solid #3498db;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+#dashboard .menu .list li i {
+  color: white;
+  margin-right: 8px;
+}
+#dashboard .menu .list i.fa-play {
+  position: absolute;
+  display: inline-block;
+  bottom: 111px;
+  height: 54px;
+  width: 54px;
+  text-align: center;
+  line-height: 54px;
+  right: 0;
+  color: white;
+  background-color: #3498db;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+#dashboard .menu .list i.fa-paper-plane {
+  position: absolute;
+  display: inline-block;
+  bottom: 56px;
+  height: 54px;
+  width: 54px;
+  text-align: center;
+  line-height: 54px;
+  right: 0;
+  color: white;
+  background-color: #3498db;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+#dashboard .menu .list i.fa-bed {
+  position: absolute;
+  display: inline-block;
+  bottom: 1;
+  height: 54px;
+  width: 54px;
+  text-align: center;
+  line-height: 54px;
+  right: 0;
+  color: white;
+  background-color: #3498db;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+#dashboard .menu .list li:hover {
+  color: #3498db;
+  padding: 15px 35px 15px 25px;
+}
+#dashboard .menu .list li:hover i {
+  color: #3498db;
+}
+#dashboard .menu .problem {
+  position: fixed;
+  display: inline-block;
+  top: 295px;
+  bottom: 135px;
+  left: 0;
+  width: 360px;
+  height: auto;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#dashboard .menu .problem p {
+  padding: 5px 20px;
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: justify;
+}
+#dashboard .menu .problem h1 {
+  margin: 0;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 700;
+}
+#dashboard .menu .problem b {
+  font-weight: 700;
+}
+#dashboard .menu .problem a {
+  text-decoration: none;
+  color: inherit;
+}
+#dashboard .menu .problem input {
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #3498db;
+  background: #1f2123;
+  color: #ecf0f1;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+}
+#dashboard .menu .problem input.input {
+  background: #1f2123;
+}
+#dashboard .menu .problem input.output {
+  background: #3498db;
+}
+#dashboard .menu .problem:empty {
+  background-color: #ecf0f1;
+}
+#dashboard .menu .problem::-webkit-scrollbar-track {
+  background-color: #ecf0f1;
+}
+#dashboard .menu .problem::-webkit-scrollbar {
+  width: 0px;
+  background-color: white;
+}
+#dashboard .menu .problem::-webkit-scrollbar-thumb {
+  background: #3498db;
+}
+#dashboard .menu .language {
+  position: fixed;
+  display: inline-block;
+  bottom: 80px;
+  left: 0;
+  height: 25px;
+  width: 300px;
+  padding: 15px 30px;
+  border-bottom: 1px solid #3498db;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+}
+#dashboard .menu .language span {
+  font-weight: 300;
+  color: #ecf0f1;
+  line-height: 18px;
+}
+#dashboard .menu .language b {
+  font-weight: 700;
+  color: #3498db;
+}
+#dashboard .menu .language i.fa-chevron-left {
+  position: absolute;
+  left: 10px;
+  top: 18px;
+  color: white;
+  transition: all 0.7s ease;
+}
+#dashboard .menu .language i.fa-chevron-left:hover {
+  padding-left: 10px;
+  color: #3498db;
+}
+#dashboard .menu .language i.fa-chevron-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+  color: white;
+  transition: all 0.7s ease;
+}
+#dashboard .menu .language i.fa-chevron-right:hover {
+  padding-right: 10px;
+  color: #3498db;
+}
+#dashboard .menu .widget {
+  position: fixed;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  padding: 5px 0;
+  width: 360px;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+}
+#dashboard .menu .widget p {
+  margin: 0;
+  padding: 0;
+}
+#dashboard .menu .widget b {
+  font-weight: 700;
+}
+#dashboard #editor {
+  position: fixed;
+  left: 360px;
+  top: 0;
+  bottom: 200px;
+  right: 0;
+  height: auto;
+  width: auto;
+  border-bottom: 1px solid #3498db;
+}
+@keyframes showText {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+#dashboard #editor + .caption {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #3498db;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+#dashboard #editor + .caption i {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  width: 100%;
+}
+#dashboard #editor + .caption p {
+  margin: 0;
+  padding: 0 10px;
+  text-align: justify;
+  font-size: 14px;
+  font-weight: 300;
+  display: none;
+  opacity: 0;
+  color: white;
+  height: 270px;
+  vertical-align: middle;
+  animation: showText 0.7s;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+#dashboard #editor + .caption:hover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  background: #3498db;
+}
+#dashboard #editor + .caption:hover i {
+  color: white;
+}
+#dashboard #editor + .caption:hover p {
+  display: block;
+}
+#dashboard .panel {
+  position: fixed;
+  display: block;
+  left: 360px;
+  height: 200px;
+  bottom: 0;
+  right: 0;
+  width: auto;
+}
+#dashboard .panel #error {
+  position: absolute;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  float: left;
+  border-right: 1px solid #3498db;
+  z-index: 3;
+}
+#dashboard .panel #error + .caption {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  right: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #3498db;
+  z-index: 4;
+}
+#dashboard .panel #error + .caption i {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+}
+#dashboard .panel #in {
+  position: absolute;
+  display: inline-block;
+  padding-left: 1px;
+  width: 50%;
+  height: 50%;
+  right: 0;
+  top: 0;
+  float: left;
+  border-bottom: 1px solid #3498db;
+  z-index: 2;
+}
+#dashboard .panel #in + .caption {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #3498db;
+  z-index: 3;
+}
+#dashboard .panel #in + .caption i {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+}
+#dashboard .panel #out {
+  position: absolute;
+  display: inline-block;
+  padding-left: 1px;
+  width: 50%;
+  height: 50%;
+  right: 0;
+  bottom: 0;
+  float: left;
+  z-index: 1;
+}
+#dashboard .panel #out + .caption {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #3498db;
+  z-index: 3;
+}
+#dashboard .panel #out + .caption i {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+}
+/* Admin */
+#admin {
+  background: #3498db;
+}
+#admin #form {
+  width: 70%;
+  min-height: 100%;
+  margin: 0 15%;
+  background: white;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+#admin #form h1 {
+  display: block;
+  width: 100%;
+  height: 130px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  margin: 0;
+  color: white;
+  line-height: 130px;
+  font-size: 90px;
+  font-family: 'Yellowtail', cursive;
+  background: #2980b9;
+}
+#admin #form .buttons {
+  display: block;
+}
+#admin #form button {
+  display: inline-block;
+  float: left;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #3498db;
+  transition: all 0.7s ease;
+}
+#admin #form button i {
+  padding-right: 5px;
+  font-size: 18px;
+}
+#admin #form button:hover {
+  background: #2980b9;
+}
+#admin #form button.half {
+  width: 50%;
+}
+#admin #form button.full {
+  width: 100%;
+}
+#admin #form p {
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 10px 0 10px 10px;
+  padding: 0;
+}
+#admin #form p i {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  color: #3498db;
+  text-align: center;
+  line-height: 22px;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+#admin #form p i:hover {
+  color: #2980b9;
+}
+#admin #form p.first {
+  margin-top: 104px;
+}
+#admin #form input {
+  display: inline-block;
+  width: 100%;
+  padding: 20px 10px;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  background: #3498db;
+  color: white;
+  border: none;
+  outline: none;
+}
+#admin::-webkit-scrollbar-track {
+  background-color: #ecf0f1;
+}
+#admin::-webkit-scrollbar {
+  width: 6px;
+  background-color: white;
+}
+#admin::-webkit-scrollbar-thumb {
+  background: #1f2123;
+}
