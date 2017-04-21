@@ -56,30 +56,39 @@ html
 			p= "Dashboard: Recomandare"
 				i.fa.fa-paper-plane(v-on:click="update")
 			input(type="text", v-model="dashboardRecommand", autocomplete="off", spellcheck="false")
-			p= "Problema: Titlu"
+			p= "Problema zilnica: Titlu"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemTitle", autocomplete="off", spellcheck="false")
-			p= "Problema: Descriere"
+			input(type="text", v-model="dailyTitle", autocomplete="off", spellcheck="false")
+			p= "Problema zilnica: Descriere"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemDescription", autocomplete="off", spellcheck="false")
-			p= "Problema: Input"
+			input(type="text", v-model="dailyDescription", autocomplete="off", spellcheck="false")
+			p= "Problema zilnica: Input"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemInput", autocomplete="off", spellcheck="false")
-			p= "Problema: Output"
+			input(type="text", v-model="dailyInput", autocomplete="off", spellcheck="false")
+			p= "Problema zilnica: Output"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemOutput", autocomplete="off", spellcheck="false")
-			p= "Problema: Tutorial"
+			input(type="text", v-model="dailyOutput", autocomplete="off", spellcheck="false")
+			p= "Problema zilnica: Tutorial"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemTutorial", autocomplete="off", spellcheck="false")
-			p= "Problema: Input test"
+			input(type="text", v-model="dailyTutorial", autocomplete="off", spellcheck="false")
+			p= "Problema zilnica: Input test"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemTestsInput", autocomplete="off", spellcheck="false")
-			p= "Problema: Output test"
+			input(type="text", v-model="dailyTestsInput", autocomplete="off", spellcheck="false")
+			p= "Problema zilnica: Output test"
 				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="problemTestsOutput", autocomplete="off", spellcheck="false")
+			input(type="text", v-model="dailyTestsOutput", autocomplete="off", spellcheck="false")
 			p= "Admin: Title"
 				i.fa.fa-paper-plane(v-on:click="update")
 			input(type="text", v-model="adminTitle", autocomplete="off", spellcheck="false")
+			p= "Admin: Item meniu #1"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="adminButtonHome", autocomplete="off", spellcheck="false")
+			p= "Admin:  Item meniu #2"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="adminButtonDashboard", autocomplete="off", spellcheck="false")
+			p= "Admin: Item meniu #3"
+				i.fa.fa-paper-plane(v-on:click="update")
+			input(type="text", v-model="adminButtonLogout", autocomplete="off", spellcheck="false")
 		script(src='lib/vue.min.js')
 		script(src='lib/socket.io.min.js')
 		script(src='js/admin.js')
