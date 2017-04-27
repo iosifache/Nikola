@@ -1,24 +1,3 @@
-/* Editor init */
-var editors = [
-    {'id': 'editor', 'mode': 'sh', 'work': 'yes'},
-    {'id': 'error', 'mode': 'plain_text', 'work': 'no'},
-    {'id': 'in', 'mode': 'plain_text', 'work': 'no'},
-    {'id': 'out', 'mode': 'plain_text', 'work': 'no'}
-];
-editors.forEach(function(element){
-    var editor = ace.edit(element.id);
-    editor.setTheme('ace/theme/monokai');
-    editor.getSession().setMode('ace/mode/'+element.mode);
-    if (element.work == "no") editor.getSession().setUseWorker(false);
-    editor.setShowPrintMargin(false);
-});
-
-/* Socket.io */
-var socket = io();
-socket.on('connect', function(data){
-    console.log("Connect to server with socket.io");
-});
-
 /* Functions */
 function timeNow(){
     var today = new Date();
@@ -45,6 +24,27 @@ function IsJsonString(str){
     }
     return true;
 }
+
+/* Ace editors initialization */
+var editors = [
+    {'id': 'editor', 'mode': 'sh', 'work': 'yes'},
+    {'id': 'error', 'mode': 'plain_text', 'work': 'no'},
+    {'id': 'in', 'mode': 'plain_text', 'work': 'no'},
+    {'id': 'out', 'mode': 'plain_text', 'work': 'no'}
+];
+editors.forEach(function(element){
+    var editor = ace.edit(element.id);
+    editor.setTheme('ace/theme/monokai');
+    editor.getSession().setMode('ace/mode/'+element.mode);
+    if (element.work == "no") editor.getSession().setUseWorker(false);
+    editor.setShowPrintMargin(false);
+});
+
+/* Socket.io */
+var socket = io();
+socket.on('connect', function(data){
+    console.log("Connect to server with socket.io");
+});
 
 /* Languages */
 var languagesList =[
@@ -107,6 +107,12 @@ var menu = new Vue({
         },
         white: function(){
             menu.frame = "";
+            var editor = ace.edit("in");
+            editor.setValue("");
+            var editor = ace.edit("out");
+            editor.setValue("");
+            var editor = ace.edit("error");
+            editor.setValue("");
         },
         problem: function(){
             socket.emit('getProblem');
@@ -115,6 +121,10 @@ var menu = new Vue({
                 var editor = ace.edit("in");
                 editor.setValue(data.inputs, 1);
                 tutorial.tutorial = data.tutorial;
+                var editor = ace.edit("out");
+                editor.setValue("");
+                var editor = ace.edit("error");
+                editor.setValue("");
             });
         },
         sendProblem: function(){
@@ -133,6 +143,10 @@ var menu = new Vue({
                 tutorial.tutorial = "Sugestiile de rezolvare sunt active doar daca tab-ul problemei este selectat";
                 var editor = ace.edit("in");
                 editor.setValue("");
+                var editor = ace.edit("out");
+                editor.setValue("");
+                var editor = ace.edit("error");
+                editor.setValue("");
             });
         },
         time: function(){
@@ -150,7 +164,7 @@ var menu = new Vue({
                     if (response.body.wind.speed<20) wind = "calm"
                     else if (response.body.wind.speed<40) wind = "moderat"
                     else wind = "puternic";
-                    this.weather = temperature + " grade Celsius si vant " + wind;
+                    this.weather = Math.round(temperature) + " grade Celsius si vant " + wind;
                     var timeout = setTimeout(this.getWeather, 600000);
                 });
             });
@@ -172,7 +186,21 @@ var menu = new Vue({
             socket.on('compileResult', function(data){
                 if (IsJsonString(data)) object = JSON.parse(data)
     			else object = data;
-                var error = "Status: " + object.status + "\nRezultat: " + object.result + "\nTimp de executie: " + object.time + "\nMemorie: " + object.memory+ "\nEroare de compilare: " + object.cmperr;
+                var error = "";
+                if (object.status<0) error += "Status: Se asteapta compilarea. Te rugam sa compilezi inca o data programul";
+                if (object.status==0) error += "Status: Compilarea programului a fost executata cu succes";
+                if (object.status==1) error += "Status: Se compileaza. Te rugam sa compilezi inca o data programul";
+                if (object.status==3) error += "Status: Se executa. Te rugam sa compilezi inca o data programul";
+                if (object.result==11) error += "\nRezultat: Eroare de compilare";
+                if (object.result==12) error += "\nRezultat: Eroare tip runtime";
+                if (object.result==13) error += "\nRezultat: Limita de timp depasita";
+                if (object.result==15) error += "\nRezultat: Succes";
+                if (object.result==17) error += "\nRezultat: Limita de spatiu depasita";
+                if (object.result==19) error += "\nRezultat: Chemare ilegala a sistemului";
+                if (object.result==20) error += "\nRezultat: Eroare interna";
+                error +=  "\nTimp de executie: " + object.time + " secunde\nMemorie: " + object.memory+ " kilobytes";
+                if (object.cmperr!="") error +=  "\n\nEroare de compilare: " + object.cmperr;
+                else error +=  "\nEroare de compilare: " + object.cmperr;
                 var editor = ace.edit("error");
                 editor.setValue(error, 1);
                 var editor = ace.edit("out");

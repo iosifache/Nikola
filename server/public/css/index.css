@@ -293,6 +293,9 @@ body {
   width: auto;
   border-bottom: 1px solid #3498db;
 }
+#dashboard #editor .ace_scrollbar{
+    display: none !important;
+}
 @keyframes showText {
   0% {
     display: block;

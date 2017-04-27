@@ -1,8 +1,8 @@
+/* data */
 {
-    "_id" : ObjectId("58b31f9edf1fb94e03bfee46"),
     "brand" : "Nikola",
     "indexTitle" : "Nikola: Acasa",
-    "indexButton" : "Login in with Github",
+    "indexButton" : "Login in cu Github",
     "dashboardTitle" : "Nikola: Dashboard",
     "dashboardMenu1" : "Compileaza",
     "dashboardMenu2" : "Problema actuala",
@@ -12,15 +12,19 @@
     "dashboardOutside" : "Afara sunt: ",
     "dashboardPlatform" : "Ai petrecut: ",
     "dashboardRecommand" : "Recomandare: ",
-    "problemTitle" : "Printer",
-    "problemDescription" : "Vei crea un program intr-un limbaj de programare la alegere. Acesta va printa datele de intrare.",
-    "problemInput" : "pe prima linie un sir de caractere",
-    "problemOutput" : "pe prima linie sirul de caractere citit anterior",
-    "problemTutorial" : "Acest program este unul de acomodare cu platforma. In interiorul programului, vei crea o variabila de tip sir de caractere, dupa care ii vei asigna valoarea datelor de intrare si o vei printa.",
-    "problemTestsInput" : "Hello world",
-    "problemTestsOutput" : "Hello world",
     "adminTitle" : "Nikola: Admin",
     "adminButtonHome" : "Go to Home",
     "adminButtonDashboard" : "Go to Dashboard",
     "adminButtonLogout" : "Logout"
+}
+
+/* problem */
+{
+    "dailyTitle" : "Printer",
+    "dailyDescription" : "Vei crea un program intr-un limbaj de programare la alegere. Acesta va printa datele de intrare.",
+    "dailyInput" : "pe prima linie un sir de caractere",
+    "dailyOutput" : "pe prima linie sirul de caractere citit anterior",
+    "dailyTutorial" : "Acest program este unul de acomodare cu platforma. In interiorul programului, vei crea o variabila de tip sir de caractere, dupa care ii vei asigna valoarea datelor de intrare si o vei printa.",
+    "dailyTestsInput" : "Hello world",
+    "dailyTestsOutput" : "Hello world"
 }

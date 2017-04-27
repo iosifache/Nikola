@@ -67,6 +67,18 @@ app.use(session({secret: 'keyboard cat', resave: false, saveUninitialized: false
 app.use(passport.initialize());
 app.use(passport.session());
 
+/* Models */
+global.modelAdmin = require('./server/models/admin');
+global.modelDashboard = require('./server/models/dashboard');
+global.modelIndex = require('./server/models/index');
+global.modelProblem = require('./server/models/problem');
+
+/* Controllers */
+global.login = require('./server/controllers/login')(app);
+global.index = require('./server/controllers/index')(app);
+global.dashboard = require('./server/controllers/dashboard')(app);
+global.admin = require('./server/controllers/admin')(app);
+
 /* Listen */
 global.server = app.listen(config.port, function(){
     console.log('App listening on port ' + config.port + '!');
@@ -79,16 +91,8 @@ io.on('connection', function(client){
     /* Global client */
     global.client = client;
 
-    /* Models */
-    global.modelAdmin = require('./server/models/admin');
-    global.modelDashboard = require('./server/models/dashboard');
-    global.modelIndex = require('./server/models/index');
-    global.modelProblem = require('./server/models/problem');
-
-    /* Controllers */
-    global.login = require('./server/controllers/login')(app);
-    global.index = require('./server/controllers/index')(app);
-    global.dashboard = require('./server/controllers/dashboard')(app);
-    global.admin = require('./server/controllers/admin')(app);
+    // Sockets
+    global.socketDashboard = require('./server/sockets/dashboard')(client);
+    global.socketAdmin = require('./server/sockets/admin')(client);
 
 });
