@@ -1,0 +1,18 @@
+{
+    "brand" : "Nikola",
+    "indexTitle" : "Nikola: Acasa",
+    "indexButton" : "Login in cu Github",
+    "dashboardTitle" : "Nikola: Dashboard",
+    "dashboardMenu1" : "Compileaza",
+    "dashboardMenu2" : "Problema actuala",
+    "dashboardMenu3" : "Informatii",
+    "dashboardLanguage" : "Limbaj de programare: ",
+    "dashboardHour" : "Ora actuala este: ",
+    "dashboardOutside" : "Afara sunt: ",
+    "dashboardPlatform" : "Ai petrecut: ",
+    "dashboardRecommand" : "Recomandare: ",
+    "adminTitle" : "Nikola: Admin",
+    "adminButtonHome" : "Go to Home",
+    "adminButtonDashboard" : "Go to Dashboard",
+    "adminButtonLogout" : "Logout"
+}
