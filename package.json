@@ -7,7 +7,7 @@
     "browser-sync": "^2.18.8",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
-    "electron": "^1.6.2",
+    "electron": "^1.6.11",
     "express": "^4.15.2",
     "express-partials": "^0.3.0",
     "express-session": "^1.15.1",
@@ -26,8 +26,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron desktop/electron.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "iosifache",
   "license": "MIT",
@@ -38,6 +37,6 @@
   "bugs": {
     "url": "https://github.com/iosifache/Nikola/issues"
   },
-  "homepage": "https://github.com/iosifache/Nikola#readme",
+  "homepage": "",
   "description": ""
 }

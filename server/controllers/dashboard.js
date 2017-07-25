@@ -17,7 +17,10 @@ module.exports = function(app){
     				user: req.user
                 });
     			user = req.user;
+                db.collection('users').count({email:user._json.email}, function(err, resultsCount){
+                    if (resultsCount==0) db.collection('users').insert({email: user._json.email, actual: 1});
+                });
             };
         });
     });
-}
+};

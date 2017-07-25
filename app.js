@@ -34,7 +34,9 @@ global.cors_config = {
     credentials: true
 };
 app.use(cors(cors_config));
-app.use(helmet());
+app.use(helmet({
+    frameguard: false
+}))
 app.use(express.static('./server/public'));
 app.set('views', './server/public/views');
 app.set('view engine', 'pug');
@@ -72,6 +74,7 @@ global.modelAdmin = require('./server/models/admin');
 global.modelDashboard = require('./server/models/dashboard');
 global.modelIndex = require('./server/models/index');
 global.modelProblem = require('./server/models/problem');
+global.modelUser = require('./server/models/user');
 
 /* Controllers */
 global.login = require('./server/controllers/login')(app);
@@ -85,6 +88,7 @@ global.server = app.listen(config.port, function(){
 });
 
 /* Socket.io */
+global.count = 0;
 global.io = require('socket.io')(server);
 io.on('connection', function(client){
 
@@ -94,5 +98,16 @@ io.on('connection', function(client){
     // Sockets
     global.socketDashboard = require('./server/sockets/dashboard')(client);
     global.socketAdmin = require('./server/sockets/admin')(client);
+
+    // Auth middleware
+    io.use(middlewares.socketAuth);
+
+    // Count users
+    count++;
+    io.emit('message', {count: count});
+    client.on('disconnect', function(){
+        count--;
+        io.emit('message', {count: count});
+    })
 
 });

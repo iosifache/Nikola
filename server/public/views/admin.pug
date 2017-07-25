@@ -20,75 +20,94 @@ html
 					button(class="full")
 						i.fa.fa-bed
 						span= adminButtonLogout
-			p(class="first")= "Brand"
-				i.fa.fa-paper-plane(v-on:click="update")
+			p(class="first", v-text="userActive")= ""
+			p= "Infos: Utilizatori"
+				i.fa.fa-search(v-on:click="search")
+			input(type="text", v-model="user", autocomplete="off", spellcheck="false", class="half")
+			p(class="half", v-text="userNumber")= ""
+			p= "Infos: Brand"
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="brand", autocomplete="off", spellcheck="false")
 			p= "Index: Titlu"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="indexTitle", autocomplete="off", spellcheck="false")
 			p= "Index: Buton"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="indexButton", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Titlu"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardTitle", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Item meniu #1"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardMenu1", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Item meniu #2"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardMenu2", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Item meniu #3"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardMenu3", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Limbaj de programare"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardLanguage", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Ora"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardHour", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Vreme"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardOutside", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Timp petrecut"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardPlatform", autocomplete="off", spellcheck="false")
 			p= "Dashboard: Recomandare"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="dashboardRecommand", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Titlu"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyTitle", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Descriere"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyDescription", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Input"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyInput", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Output"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyOutput", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Tutorial"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyTutorial", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Input test"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyTestsInput", autocomplete="off", spellcheck="false")
-			p= "Problema zilnica: Output test"
-				i.fa.fa-paper-plane(v-on:click="update")
-			input(type="text", v-model="dailyTestsOutput", autocomplete="off", spellcheck="false")
 			p= "Admin: Title"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="adminTitle", autocomplete="off", spellcheck="false")
 			p= "Admin: Item meniu #1"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="adminButtonHome", autocomplete="off", spellcheck="false")
 			p= "Admin:  Item meniu #2"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="adminButtonDashboard", autocomplete="off", spellcheck="false")
 			p= "Admin: Item meniu #3"
-				i.fa.fa-paper-plane(v-on:click="update")
+				i.fa.fa-paper-plane(v-on:click="updateData")
 			input(type="text", v-model="adminButtonLogout", autocomplete="off", spellcheck="false")
+			p= "Problema: Titlu"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyTitle", autocomplete="off", spellcheck="false")
+			p= "Problema: Descriere"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyDescription", autocomplete="off", spellcheck="false")
+			p= "Problema: Input"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyInput", autocomplete="off", spellcheck="false")
+			p= "Problema: Output"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyOutput", autocomplete="off", spellcheck="false")
+			p= "Problema: Tutorial"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyTutorial", autocomplete="off", spellcheck="false")
+			p= "Problema: Input test"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyTestsInput", autocomplete="off", spellcheck="false")
+			p= "Problema: Output test"
+				i.fa.fa-chevron-left(v-on:click="down", v-bind:class="{disable: isDisableDown}")
+				i.fa.fa-chevron-right(v-on:click="up", v-bind:class="{disable: isDisableUp}")
+				i.fa.fa-paper-plane(v-on:click="updateProblem")
+			input(type="text", v-model="dailyTestsOutput", autocomplete="off", spellcheck="false")
 		script(src='lib/vue.min.js')
 		script(src='lib/socket.io.min.js')
 		script(src='js/admin.js')

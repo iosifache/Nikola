@@ -1,4 +1,5 @@
 {
+    "id" : 1,
     "dailyTitle" : "Printer",
     "dailyDescription" : "Vei crea un program intr-un limbaj de programare la alegere. Acesta va printa datele de intrare.",
     "dailyInput" : "pe prima linie un sir de caractere",
@@ -6,4 +7,24 @@
     "dailyTutorial" : "Acest program este unul de acomodare cu platforma. In interiorul programului, vei crea o variabila de tip sir de caractere, dupa care ii vei asigna valoarea datelor de intrare si o vei printa.",
     "dailyTestsInput" : "Hello world",
     "dailyTestsOutput" : "Hello world"
+},
+{
+    "id" : 2,
+    "dailyTitle" : "Prim",
+    "dailyDescription" : "Veti crea un program intr-un limbaj de programare la alegere. Acesta va verifica daca un numar este prim",
+    "dailyInput" : "pe prima linie un numar de verificat",
+    "dailyOutput" : "pe prima linie 0(daca numarul nu este prim) sau 1(daca este prim)",
+    "dailyTutorial" : "In interiorul programului, se poate folosi o structura repetitiva FOR cu i de la 2 pana la n-1 care sa verifice daca numarul de verificat este divizibil cu i. Dupa aceasta, se va verifica daca numarul de divizori proprii este nenul, caz in care nu e prim. In caz contrar, numarul e prim",
+    "dailyTestsInput" : "36637",
+    "dailyTestsOutput" : "1"
+},
+{
+    "id" : 3,
+    "dailyTitle" : "Palindrom",
+    "dailyDescription" : "Veti crea un program intr-un limbaj de programare la alegere. Acesta va verifica daca un cuvant este palindrom(inseamna acelasi lucru citit si de la dreapta la stranga, si invers).",
+    "dailyInput" : "pe prima linie un cuvant de verificat",
+    "dailyOutput" : "pe prima linie 0(daca cuvantul nu este palindrom) sau 1(daca este palindrom)",
+    "dailyTutorial" : "In interiorul programului, se poate folosi o structura care inverseaza literele cuvantului. Dupa aceasta, se va verifica daca acest cuvant nou format coincide cu cel initial, caz in care e palindrom. In caz contrar, numarul nu e.",
+    "dailyTestsInput" : "18573864286238953267231584926523697355379632562948513236235983268246837581",
+    "dailyTestsOutput" : "0"
 }

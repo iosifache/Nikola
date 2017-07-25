@@ -42,9 +42,6 @@ editors.forEach(function(element){
 
 /* Socket.io */
 var socket = io();
-socket.on('connect', function(data){
-    console.log("Connect to server with socket.io");
-});
 
 /* Languages */
 var languagesList =[
@@ -66,7 +63,7 @@ var menu = new Vue({
     data: {
         languages: languagesList,
         counter: 0,
-        language: "",
+        language: languagesList[0],
         frame: "",
         compilation: ": ",
         solved: ": ",
@@ -85,6 +82,10 @@ var menu = new Vue({
         this.enterHour = new Date();
         this.getWeather();
         this.getSpendTime();
+        Mousetrap.bind(['ctrl+s', 'command+s'], function(e){
+            menu.save();
+            return false;
+        });
     },
     methods: {
         next: function(){
@@ -105,7 +106,20 @@ var menu = new Vue({
             editor.getSession().setMode('ace/mode/' + this.languages[this.counter].mode);
             editor.getSession().setUseWorker(true);
         },
+        save: function(){
+            var code = ace.edit("editor").getValue();
+            var language = this.language;
+            var name = "sursa" + language + ".txt";
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(code));
+            element.setAttribute('download', name);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        },
         white: function(){
+            tutorial.tutorial = "Sugestiile de rezolvare sunt active doar daca tab-ul problemei este selectat";
             menu.frame = "";
             var editor = ace.edit("in");
             editor.setValue("");
@@ -116,7 +130,7 @@ var menu = new Vue({
         },
         problem: function(){
             socket.emit('getProblem');
-            socket.on('problem', function(data){
+            socket.on('receiveProblem', function(data){
                 menu.frame = "<h1>Problema actuala</h1><p><b>Nume</b><span>: " + data.title + "</span></p><p><b>Descriere</b><span>: " + data.description + "</span></p><p><b>Date de intrare</b><span>: " + data.input + "</span></p><p><b>Date de iesire</b><span>: " + data.output + "</span></p>";
                 var editor = ace.edit("in");
                 editor.setValue(data.inputs, 1);
@@ -129,16 +143,26 @@ var menu = new Vue({
         },
         sendProblem: function(){
             var inData = ace.edit("out").getValue();
-            socket.emit('sendSolved', {"input": inData});
-            socket.on('results', function(data){
+            socket.emit('sendResults', {"input": inData});
+            socket.on('receiveResults', function(data){
                 var editor = ace.edit("out");
-                if (data.results=="1") editor.setValue("Solutia este valida. Te felicitam si te asteptam la urmatoarea problema!", 1)
-                else editor.setValue("Ne pare rau, dar solutia ta nu este valida. Te rugam sa mai incerci!", 1);
+                if (data.results=="2"){
+                    editor.setValue("Solutia este valida, dar ai atins maximul de probleme. Te felicitam si asteptam peste ceva timp, dupa ce vom incarca mai multe probleme", 1);
+                }
+                if (data.results=="1"){
+                    editor.setValue("Solutia este valida. Te felicitam si te asteptam la urmatoarea problema!", 1);
+                    setTimeout(function(){
+                        menu.problem();
+                    }, 3000);
+                }
+                if (data.results=="0"){
+                    editor.setValue("Ne pare rau, dar solutia ta nu este valida. Te rugam sa mai incerci!", 1);
+                }
             });
         },
         settings: function(){
             socket.emit('getUser');
-            socket.on('user', function(data){
+            socket.on('receiveUser', function(data){
                 menu.frame = "<h1>Informatii</h1><p><b>Username</b><span>: " + data.user.username + "</p><p><b>URL</b><span>: <a href='" + data.user._json.html_url + "'>" + data.user._json.html_url + "</a></p><p><b>Nume</b><span>: " + data.user.displayName + "</p><p><b>Email</b><span>: " + data.user._json.email + "</p><p><b>Companie</b><span>: " + (data.user.company || "fara companie") + "</p><p><b>Blog</b><span>: " + (data.user.blog || "fara blog") + "</p><p><b>Domiciliu</b><span>: " + (data.user.location || "fara locatie") + "</p><p><b>Bio</b><span>: " + (data.user.bio || "fara bio") + "</p><p><b>Repo-uri publice</b><span>: " + data.user._json.public_repos + "</p><p><b>Gist-uri publice</b><span>: " + data.user._json.public_gists + "</p>";
                 tutorial.tutorial = "Sugestiile de rezolvare sunt active doar daca tab-ul problemei este selectat";
                 var editor = ace.edit("in");
@@ -182,8 +206,8 @@ var menu = new Vue({
             var id = this.languages[this.counter].id;
             var code = ace.edit("editor").getValue();
             var inData = ace.edit("in").getValue();
-            socket.emit('compile', {"id":id, "code": code, "in": inData});
-            socket.on('compileResult', function(data){
+            socket.emit('getCompile', {"id":id, "code": code, "in": inData});
+            socket.on('receiveCompile', function(data){
                 if (IsJsonString(data)) object = JSON.parse(data)
     			else object = data;
                 var error = "";

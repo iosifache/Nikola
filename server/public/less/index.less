@@ -535,7 +535,19 @@ body{
 			}
 		}
 		p.first{
-			margin-top: 104px;
+			margin: 114px 0 0 0;
+			padding: 0px 0 10px 10px;
+			border-bottom: 1px solid @baseColor;
+		}
+		p.half{
+			display: inline-block;
+			width: 50%;
+			margin: 0;
+			font-size: 18px;
+    		padding: 20px 0;
+			font-weight: 300;
+    		text-align: center;
+			background: @baseHover;
 		}
 		input{
 			display: inline-block;
@@ -548,6 +560,9 @@ body{
 			color: white;
 			border: none;
 			outline: none;
+		}
+		input.half{
+			width: 50%;
 		}
 	}
 }
